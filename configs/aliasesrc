@@ -1,0 +1,14 @@
+alias reload="source ~/.zshrc"
+alias redo="sudo !!"
+alias co-="git co -"
+alias fuck="rm -rf"
+
+alias shipit='echo "       _~\n    _~ )_)_~\n    )_))_))_)\n    _!__!__!_\n    \______t/\n  ~~~~~~~~~~~~~" && git push origin $(git rev-parse --abbrev-ref HEAD 2> /dev/null)'
+alias SHIPIT='echo "       _~\n    _~ )_)_~\n    )_))_))_)\n    _!__!__!_\n    \______t/\n  ~~~~~~~~~~~~~" && git push --force-with-lease origin $(git rev-parse --abbrev-ref HEAD 2> /dev/null)'
+
+alias stash="git stash save -u"
+alias killg='pgrep grunt | xargs kill -9'
+
+alias zsh="ws ~/.dotfiles/configs"
+
+alias frontend="itermocil frontend"

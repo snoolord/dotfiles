@@ -1,0 +1,120 @@
+# Usage: gs [partner]
+gs() {
+ngts-clear-cache
+if [ "$1" = "" ]; then
+  grunt server --partner=sigfig
+else
+  grunt server --partner=$1
+fi
+}
+
+# Usage: gku [partner]
+gku() {
+if [ "$1" = "" ]; then
+  grunt karma:unit --partner=sigfig
+else
+  grunt karma:unit --partner=$1
+fi
+}
+
+# Usage: gkw [partner]
+gkw() {
+if [ "$1" = "" ]; then
+  grunt karma:unit_watch --partner=sigfig
+else
+  grunt karma:unit_watch --partner=$1
+fi
+}
+
+# Usage: qbt [partners]
+qbt() {
+ngts-clear-cache
+if [ "$1" = "" ]; then
+  quick-build-test -p sigfig
+else
+  quick-build-test -p $1
+fi
+}
+
+npa() {
+    ngts-pristine-all
+    tput bel
+}
+
+k9() {
+if [ "$1" = "" ]; then
+  killall -9 grunt
+  ngts-clear-cache
+else
+  killall -9 $1
+fi
+}
+
+co () {
+    if [[ $# -gt 0 ]] then
+        git checkout "$@"
+    else
+        git checkout `git branch -l | fzf`
+    fi
+}
+
+cc() {
+    ngts-clear-cache
+}
+
+swag() {
+  if [ "$1" = "" ]; then
+    tab 
+    cd ~/workspace/ngts/fam && gs
+  else
+    tab && cd ~/workspace/ngts/fam && gs $1
+  fi
+}
+
+# No arguments: `git status`
+# With arguments: acts like `git`
+g() {
+  if [[ $# -gt 0 ]]; then
+    git "$@"
+  else
+    git status -s
+  fi
+}
+
+# have autocomplete treat `g` like `git`; zsh-specific
+compdef g=git
+
+c () {
+  if [[ $# -gt 0 ]]; then
+    git commit -m "$*"
+  else
+    git commit -v
+  fi
+}
+
+# dependency: `brew install diff-so-fancy`
+co () {
+  if [[ $# -gt 0 ]]; then
+    git checkout "$@"
+  else
+    git checkout `git branch -l | sed 's/^ *//' | fzf --preview 'git show heads/{} | diff-so-fancy'`
+  fi
+}
+alias co-="git co -"
+
+cob () {
+  git checkout -b "`echo $* | tr ' ' -`"
+}
+
+alias stash="git stash save -u"
+
+s () {
+  PROJECT=`echo "fam\nmam\ndam\nwidgets" | fzf`
+  [[ -n $PROJECT ]] && cd ~/workspace/ngts/$PROJECT
+  PARTNER=`ls partners | tr -d / | fzf`
+  echo "partner is $PARTNER"
+  npm run sourcemap-server -- --partner=$PARTNER
+}
+#
+
+code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
