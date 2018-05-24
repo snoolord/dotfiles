@@ -6,4 +6,6 @@ setopt auto_cd
 
 compctl -g '~/.itermocil/*(:t:r)' itermocil
 alias killg='pgrep grunt | xargs kill -9'
+eval "$(direnv hook zsh)"
+
 

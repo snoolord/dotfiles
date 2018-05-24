@@ -6,9 +6,12 @@ alias fuck="rm -rf"
 alias shipit='echo "       _~\n    _~ )_)_~\n    )_))_))_)\n    _!__!__!_\n    \______t/\n  ~~~~~~~~~~~~~" && git push origin $(git rev-parse --abbrev-ref HEAD 2> /dev/null)'
 alias SHIPIT='echo "       _~\n    _~ )_)_~\n    )_))_))_)\n    _!__!__!_\n    \______t/\n  ~~~~~~~~~~~~~" && git push --force-with-lease origin $(git rev-parse --abbrev-ref HEAD 2> /dev/null)'
 
+alias shipit!='shipit && open https://git.sigfig.com/SigFig/ngts -a Google\ Chrome'
 alias stash="git stash save -u"
 alias killg='pgrep grunt | xargs kill -9'
 
-alias zsh="ws ~/.dotfiles/configs"
+alias editzsh="vs ~/.dotfiles/configs"
 
 alias frontend="itermocil frontend"
+alias p="git add -p"
+alias gc-="git checkout -"
