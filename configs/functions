@@ -114,7 +114,15 @@ s () {
   echo "partner is $PARTNER"
   npm run sourcemap-server -- --partner=$PARTNER
 }
-#
+
+cdn() {
+  if [[ $# -gt 0 ]]; then
+    cd ~/workspace/ngts/${@}
+  else
+    cd ~/workspace/ngts
+  fi
+}
+compdef '_files -W ~/workspace/ngts' cdn
 
 vs () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}
 code () { VSCODE_CWD="$PWD" open -n -b "com.microsoft.VSCode" --args $* ;}

@@ -62,7 +62,8 @@ plugins=(
   z,
   git,
   osx,
-  zsh-nvm
+  zsh-nvm,
+  ssh-agent
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -102,5 +103,5 @@ function precmd () {
   echo -ne "$window_title"
 }
 
+zstyle :omz:plugins:ssh-agent agent-forwarding on
 alias stash="git stash save -u"
-export PATH="$PATH:$HOME/workspace/ngts/ngts_dev_tools/bin"
