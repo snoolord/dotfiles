@@ -1,4 +1,5 @@
-alias reload="source ~/.zshrc"
+alias rc="source ~/.zshrc"
+alias erc="vim ~/.dotfiles/configs"
 alias redo="sudo !!"
 alias co-="git co -"
 alias fuck="rm -rf"
@@ -10,10 +11,11 @@ alias shipit!='shipit && open https://git.sigfig.com/SigFig/ngts -a Google\ Chro
 alias stash="git stash save -u"
 alias killg='pgrep grunt | xargs kill -9'
 
-alias editzsh="vs ~/.dotfiles/configs"
-
 alias frontend="itermocil frontend"
 alias p="git add -p"
 alias gc-="git checkout -"
 alias hosts="sudo vim /etc/hosts"
 alias stash="git stash save -u"
+alias rename="git branch -m"
+alias amend="git commit --amend"
+alias bname='git rev-parse --abbrev-ref HEAD'

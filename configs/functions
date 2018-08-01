@@ -1,6 +1,5 @@
 # Usage: gs [partner]
 gs() {
-ngts-clear-cache
 if [ "$1" = "" ]; then
   grunt server --partner=sigfig
 else
@@ -41,6 +40,13 @@ npa() {
     tput bel
 }
 
+add-ticket() {
+	if ["$1" = ""]; then
+		git branch -m $(git rev-parse --abbrev-ref HEAD)
+	else
+		git branch -m $(git rev-parse --abbrev-ref HEAD)+$1
+	fi
+}
 k9() {
 if [ "$1" = "" ]; then
   killall -9 grunt
@@ -101,6 +107,9 @@ co () {
 }
 alias co-="git co -"
 
+cor () {
+  co $(git recent $1 | fzf)
+}
 cob () {
   git checkout -b "`echo $* | tr ' ' -`"
 }
