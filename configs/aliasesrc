@@ -1,21 +1,62 @@
 alias rc="source ~/.zshrc"
-alias erc="vim ~/.dotfiles/configs"
+alias erc="code-insiders ~/.dotfiles/configs"
 alias redo="sudo !!"
 alias co-="git co -"
 alias fuck="rm -rf"
 
 alias shipit='echo "       _~\n    _~ )_)_~\n    )_))_))_)\n    _!__!__!_\n    \______t/\n  ~~~~~~~~~~~~~" && git push origin $(git rev-parse --abbrev-ref HEAD 2> /dev/null)'
 alias SHIPIT='echo "       _~\n    _~ )_)_~\n    )_))_))_)\n    _!__!__!_\n    \______t/\n  ~~~~~~~~~~~~~" && git push --force-with-lease origin $(git rev-parse --abbrev-ref HEAD 2> /dev/null)'
+alias rebase='echo "
+   _____  .__  .__                         
+  /  _  \ |  | |  |                        
+ /  /_\  \|  | |  |                        
+/    |    \  |_|  |__                      
+\____|__  /____/____/                      
+        \/                                 
+ ___.__. ____  __ _________                
+<   |  |/  _ \|  |  \_  __ \               
+ \___  (  <_> )  |  /|  | \/               
+ / ____|\____/|____/ |__|                  
+ \/                                        
+___.                                       
+\_ |__ _____    ______ ____                
+ | __ \\__  \  /  ___// __ \               
+ | \_\ \/ __ \_\___ \\  ___/               
+ |___  (____  /____  >\___  >              
+     \/     \/     \/     \/               
+_____ _______   ____                       
+\__  \\_  __ \_/ __ \                      
+ / __ \|  | \/\  ___/                      
+(____  /__|    \___  >                     
+___. \/       .__  \/                      
+\_ |__   ____ |  |   ____   ____    ____   
+ | __ \_/ __ \|  |  /  _ \ /    \  / ___\  
+ | \_\ \  ___/|  |_(  <_> )   |  \/ /_/  > 
+ |___  /\___  >____/\____/|___|  /\___  /  
+  __ \/     \/                 \//_____/   
+_/  |_  ____                               
+\   __\/  _ \                              
+ |  | (  <_> )                             
+ |__|  \____/                              
+ __ __  ______                             
+|  |  \/  ___/                             
+|  |  /\___ \                              
+|____//____  >                             
+           \/                              "
+git pull --rebase origin master
+'
 
 alias shipit!='shipit && open https://git.sigfig.com/SigFig/ngts -a Google\ Chrome'
 alias stash="git stash save -u"
 alias killg='pgrep grunt | xargs kill -9'
 
-alias frontend="itermocil frontend"
 alias p="git add -p"
 alias gc-="git checkout -"
-alias hosts="sudo vim /etc/hosts"
 alias stash="git stash save -u"
 alias rename="git branch -m"
-alias amend="git commit --amend"
+alias amend="git commit --amend --no-verify"
 alias bname='git rev-parse --abbrev-ref HEAD'
+
+alias ggwip="git add . && git commit -m '🛠ggwip ⛱' --no-verify"
+alias unwip="git reset --soft HEAD~1"
+alias reset="git pull origin master && git reset --hard"
