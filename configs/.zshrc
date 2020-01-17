@@ -1,11 +1,21 @@
 bindkey -v
 setopt auto_cd
 [[ -a ~/.dotfiles/configs/aliasesrc ]] && source ~/.dotfiles/configs/aliasesrc
-[[ -a ~/.dotfiles/configs/zshrc-back ]] && source ~/.dotfiles/configs/zshrc-back
+[[ -a ~/.dotfiles/configs/oh-my-zsh ]] && source ~/.dotfiles/configs/oh-my-zsh
 [[ -a ~/.dotfiles/configs/functions ]] && source ~/.dotfiles/configs/functions
-
+[[ -a ~/.dotfiles/configs/doordashrc ]] && source ~/.dotfiles/configs/doordashrc
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 alias killg='pgrep grunt | xargs kill -9'
-eval "$(direnv hook zsh)"
 
 compctl -g '~/.itermocil/*(:t:r)' itermocil
 
