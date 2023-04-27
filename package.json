@@ -1,0 +1,11 @@
+{
+  "scripts": {
+    "setup": "npx ts-node ./setup.ts"
+  },
+  "dependencies": {
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18.16.1"
+  }
+}
