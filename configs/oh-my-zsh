@@ -61,8 +61,8 @@ ZSH_THEME="robbyrussell"
 plugins=(
   z
   git
-  osx
   vi-mode
+  macos
   nvm
   zsh-autosuggestions
 )

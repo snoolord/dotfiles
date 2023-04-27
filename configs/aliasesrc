@@ -1,5 +1,5 @@
 alias rc="source ~/.zshrc"
-alias erc="code-insiders ~/.dotfiles/configs"
+alias erc="code ~/.dotfiles/configs"
 alias redo="sudo !!"
 alias co-="git co -"
 alias fuck="rm -rf"
@@ -60,3 +60,5 @@ alias bname='git rev-parse --abbrev-ref HEAD'
 alias ggwip="git add . && git commit -m '🛠ggwip ⛱' --no-verify"
 alias unwip="git reset --soft HEAD~1"
 alias reset="git pull origin master && git reset --hard"
+
+alias dlmp3="youtube-dl -x --audio-format mp3"

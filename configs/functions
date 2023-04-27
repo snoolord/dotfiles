@@ -1,11 +1,3 @@
-co () {
-    if [[ $# -gt 0 ]] then
-        git checkout "$@"
-    else
-        git checkout `git branch -l | fzf`
-    fi
-}
-
 # have autocomplete treat `g` like `git`; zsh-specific
 
 c () {
@@ -37,4 +29,12 @@ delete() {
  branch="$(git rev-parse --abbrev-ref HEAD)"
  git checkout master
  git branch -d $branch
+}
+
+mp3() {
+  if [[ $# -gt 0 ]]; then
+    cd ~/Downloads
+    yt-dlp -f 'ba' -x --audio-format mp3 "$@"
+    cd -
+  fi
 }
