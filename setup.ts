@@ -17,6 +17,7 @@ const homebrewApplicationInstallCommands = {
   chrome: "brew install --cask google-chrome",
   karabiner: "brew install --cask karabiner-elements",
   discord: "brew install --cask discord",
+  fontbase: "brew install --cask fontbase",
 }
 
 Object.values(homebrewApplicationInstallCommands).forEach((command) => {

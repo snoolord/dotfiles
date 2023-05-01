@@ -1,5 +1,5 @@
 alias rc="source ~/.zshrc"
-alias erc="code ~/.dotfiles/configs"
+alias erc="code ~/.dotfiles"
 alias redo="sudo !!"
 alias co-="git co -"
 alias fuck="rm -rf"
