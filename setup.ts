@@ -33,3 +33,19 @@ Object.values(homebrewApplicationInstallCommands).forEach((command) => {
     console.log(`stdout: ${stdout}`)
   })
 })
+
+// remove disk ejected unsafely notification
+exec(
+  "sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.DiskArbitration.diskarbitrationd.plist DADisableEjectNotification -bool YES && sudo pkill diskarbitrationd",
+  (error, stdout, stderr) => {
+    if (error) {
+      console.log(`error: ${error.message}`)
+      return
+    }
+    if (stderr) {
+      console.log(`stderr: ${stderr}`)
+      return
+    }
+    console.log(`stdout: ${stdout}`)
+  },
+)
