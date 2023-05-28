@@ -18,6 +18,7 @@ const homebrewApplicationInstallCommands = {
   karabiner: "brew install --cask karabiner-elements",
   discord: "brew install --cask discord",
   fontbase: "brew install --cask fontbase",
+  fzf: "brew install fzf",
 }
 
 Object.values(homebrewApplicationInstallCommands).forEach((command) => {
